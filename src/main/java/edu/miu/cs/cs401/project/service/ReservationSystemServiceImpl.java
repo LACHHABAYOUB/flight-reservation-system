@@ -1,6 +1,6 @@
 package edu.miu.cs.cs401.project.service;
 
-import java.util.List;
+import java.util.Collection;
 
 import edu.miu.cs.cs401.project.domain.Agent;
 import edu.miu.cs.cs401.project.domain.Airline;
@@ -8,59 +8,65 @@ import edu.miu.cs.cs401.project.domain.Airport;
 import edu.miu.cs.cs401.project.domain.Flight;
 import edu.miu.cs.cs401.project.domain.Passenger;
 import edu.miu.cs.cs401.project.domain.Reservation;
+import edu.miu.cs.cs401.project.repository.ReservationSystemRepository;
 
-public class ReservationSystemFacadeImpl implements ReservationSystemFacade {
+public class ReservationSystemServiceImpl implements ReservationSystemService {
+	
+	private ReservationSystemRepository repository;
+	
+	ReservationSystemServiceImpl(ReservationSystemRepository repository) {
+		super();
+		this.repository = repository;
+	}
 
 	@Override
-	public List<Airport> findAllAirports() {
-		// TODO Auto-generated method stub
-		return null;
+	public Collection<Airport> findAllAirports() {
+		return repository.findAllAirports();
 	}
 
 	@Override
 	public Airport findAirportByAirportCode(String airportCode) {
+		return repository.findAirportByAirportCode(airportCode);
+	}
+
+	@Override
+	public Collection<Airport> findAirportsByCity(String city) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Airport> findAirportsByCity(String city) {
+	public Collection<Airline> findAirlinesByAirportCode(String airportCode) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Airline> findAirlinesByAirportCode(String airportCode) {
+	public Collection<Flight> findFlightsFromTo(String departure, String arrival) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Flight> findFlightsFromTo(String departure, String arrival) {
+	public Collection<Reservation> findReservationsByPassengerId(Integer passengerId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Reservation> findReservationsByPassengerId(Integer passengerId) {
+	public Collection<Passenger> findPassengersByAgentCode(String agentCode) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Passenger> findPassengersByAgentCode(String agentCode) {
+	public Reservation createReservation(Passenger passenger, Collection<Flight> flights) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Reservation createReservation(Passenger passenger, List<Flight> flights) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Reservation createReservation(Agent agent, Passenger passenger, List<Flight> flights) {
+	public Reservation createReservation(Agent agent, Passenger passenger, Collection<Flight> flights) {
 		// TODO Auto-generated method stub
 		return null;
 	}
