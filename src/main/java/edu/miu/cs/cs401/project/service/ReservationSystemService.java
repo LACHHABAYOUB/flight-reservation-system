@@ -1,5 +1,6 @@
 package edu.miu.cs.cs401.project.service;
 
+import java.time.LocalDate;
 import java.util.Collection;
 
 import edu.miu.cs.cs401.project.domain.Agent;
@@ -19,7 +20,7 @@ public interface ReservationSystemService {
 	
 	Collection<Airline> findAirlinesByAirportCode(String airportCode);
 	
-	Collection<Flight> findFlightsFromTo(String departure, String arrival);
+	Collection<Flight> findFlightsFromTo(String departure, String arrival, LocalDate flightDate);
 	
 	Collection<Reservation> findReservationsByPassengerId(Integer passengerId);
 	
@@ -30,6 +31,8 @@ public interface ReservationSystemService {
 	Reservation createReservation(Agent agent, Passenger passenger, Collection<Flight> flights); // Agent reserves
 	
 	void confirmReservation(String reservationCode);
+	
+	void confirmReservation(String reservationCode, String agentCode);
 	
 	void cancelReservation(String reservationCode);
 	

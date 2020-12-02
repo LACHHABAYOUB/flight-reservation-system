@@ -1,10 +1,13 @@
 package edu.miu.cs.cs401.project.domain;
 
 import java.util.Locale;
+import java.util.UUID;
 
 import com.github.javafaker.Faker;
 
 public class Address {
+	
+	private final String id;
 	
 	private String street;
 	
@@ -22,6 +25,12 @@ public class Address {
 		this.city = faker.address().city();
 		this.state = faker.address().state();
 		this.zip = faker.address().zipCode();
+		
+		this.id = UUID.randomUUID().toString();
+	}
+
+	public String getId() {
+		return id;
 	}
 
 	public String getStreet() {

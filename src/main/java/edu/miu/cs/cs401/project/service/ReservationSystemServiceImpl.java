@@ -1,5 +1,6 @@
 package edu.miu.cs.cs401.project.service;
 
+import java.time.LocalDate;
 import java.util.Collection;
 
 import edu.miu.cs.cs401.project.domain.Agent;
@@ -41,11 +42,6 @@ public class ReservationSystemServiceImpl implements ReservationSystemService {
 		return null;
 	}
 
-	@Override
-	public Collection<Flight> findFlightsFromTo(String departure, String arrival) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public Collection<Reservation> findReservationsByPassengerId(Integer passengerId) {
@@ -79,6 +75,18 @@ public class ReservationSystemServiceImpl implements ReservationSystemService {
 
 	@Override
 	public void cancelReservation(String reservationCode) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Collection<Flight> findFlightsFromTo(String departure, String arrival, LocalDate flightDate) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void confirmReservation(String reservationCode, String agentCode) {
 		// TODO Auto-generated method stub
 		
 	}
