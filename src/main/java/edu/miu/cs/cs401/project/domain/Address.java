@@ -1,32 +1,24 @@
 package edu.miu.cs.cs401.project.domain;
 
-import java.util.Locale;
-import java.util.UUID;
-
-import com.github.javafaker.Faker;
-
 public class Address {
-	
+
 	private final String id;
-	
+
 	private String street;
-	
+
 	private String city;
-	
+
 	private String state;
-	
+
 	private String zip;
 
-	public Address() {
+	public Address(String id, String street, String city, String state, String zip) {
 		super();
-		Faker faker = new Faker(new Locale("us-en"));
-
-		this.street = faker.address().buildingNumber() + " " + faker.address().streetName();
-		this.city = faker.address().city();
-		this.state = faker.address().state();
-		this.zip = faker.address().zipCode();
-		
-		this.id = UUID.randomUUID().toString();
+		this.id = id;
+		this.street = street;
+		this.city = city;
+		this.state = state;
+		this.zip = zip;
 	}
 
 	public String getId() {
@@ -69,7 +61,5 @@ public class Address {
 	public String toString() {
 		return "Address [street=" + street + ", city=" + city + ", state=" + state + ", zip=" + zip + "]";
 	}
-	
-	
 
 }
